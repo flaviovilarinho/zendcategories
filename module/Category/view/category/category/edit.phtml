@@ -1,0 +1,26 @@
+<?php
+$title = 'Edit Category';
+$this->headTitle($title);
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('category', ['action' => 'edit', 'id' => $this->id]));
+$form->prepare();
+$name = $form->get('name');
+?>
+
+<?= $this->form()->openTag($form); ?>
+
+<?= $this->formHidden($form->get('id')); ?>
+
+<div class="form-group">
+	<?php $name->setAttribute('id', 'name'); ?>
+	<?= $this->formRow($name); ?>
+</div>
+
+<?= $this->formSubmit($form->get('submit')); ?>
+
+<?= $this->form()->closeTag(); ?>
